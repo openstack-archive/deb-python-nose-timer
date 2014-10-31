@@ -1,0 +1,5 @@
+python-nose-timer (0.3.0-1) unstable; urgency=medium
+
+  * Initial release. (Closes: #767513)
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 31 Oct 2014 23:31:25 +0800

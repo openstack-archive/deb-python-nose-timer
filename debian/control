@@ -1,0 +1,58 @@
+Source: python-nose-timer
+Section: python
+Priority: optional
+Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Uploaders: Thomas Goirand <zigo@debian.org>
+Build-Depends: debhelper (>= 9),
+               python-all (>= 2.6.6-3~),
+               python-setuptools,
+               python3-all,
+               python3-setuptools
+Build-Depends-Indep: python-mock,
+                     python-nose,
+                     python-nose-parameterized,
+                     python3-mock,
+                     python3-nose,
+                     python3-nose-parameterized
+Standards-Version: 3.9.6
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/python-nose-timer.git
+Vcs-Git: git://anonscm.debian.org/openstack/python-nose-timer.git
+Homepage: https://github.com/mahmoudimus/nose-timer
+
+Package: python-nose-timer
+Architecture: all
+Pre-Depends: dpkg (>= 1.15.6~)
+Depends: ${misc:Depends}, ${python:Depends}
+Suggests: python-nose-timer-doc
+Description: timer plugin for nosetests - Python 2.x
+ A timer plugin for nosetests that answers the question: how much time does
+ every test take? Run nosetests with the --with-timer flag, and you will see
+ a list of the tests and the time spent by each one (in seconds):
+ .
+  myapp.tests.ABigTestCase.test_the_world_is_running: 56.0010s
+  myapp.tests.ABigTestCase.test_the_rest_of_the_galaxy_is_running: 2356.0010s
+ .
+ It is also possible to list the 10 slowest tests this way:
+ .
+  nosetests --with-timer --timer-top-n 10
+ .
+ This package contains the Python 2.x module.
+
+Package: python3-nose-timer
+Architecture: all
+Pre-Depends: dpkg (>= 1.15.6~)
+Depends: ${misc:Depends}, ${python3:Depends}
+Suggests: python-nose-timer-doc
+Description: timer plugin for nosetests - Python 3.x
+ A timer plugin for nosetests that answers the question: how much time does
+ every test take? Run nosetests with the --with-timer flag, and you will see
+ a list of the tests and the time spent by each one (in seconds):
+ .
+  myapp.tests.ABigTestCase.test_the_world_is_running: 56.0010s
+  myapp.tests.ABigTestCase.test_the_rest_of_the_galaxy_is_running: 2356.0010s
+ .
+ It is also possible to list the 10 slowest tests this way:
+ .
+  nosetests --with-timer --timer-top-n 10
+ .
+ This package contains the Python 3.x module.
