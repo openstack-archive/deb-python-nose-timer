@@ -58,8 +58,10 @@ class TimerPlugin(Plugin):
         self.config = config
         if self.enabled:
             self.timer_top_n = int(options.timer_top_n)
-            self.timer_ok = self._parse_time(options.timer_ok)
-            self.timer_warning = self._parse_time(options.timer_warning)
+            self.timer_error = (None if options.timer_error is None
+                                else self._parse_time(options.timer_error))
+            self.timer_warning = (None if options.timer_warning is None
+                                  else self._parse_time(options.timer_warning))
             self.timer_no_color = options.timer_no_color
 
     def startTest(self, test):
@@ -83,13 +85,14 @@ class TimerPlugin(Plugin):
         """Get formatted and colored string for a given time taken."""
         if self.timer_no_color:
             return "{0:0.4f}s".format(time_taken)
+
         time_taken_ms = time_taken * 1000
-        if time_taken_ms <= self.timer_ok:
-            color = 'green'
-        elif time_taken_ms <= self.timer_warning:
+        if self.timer_error and time_taken_ms >= self.timer_error:
+            color = 'red'
+        elif self.timer_warning and time_taken_ms >= self.timer_warning:
             color = 'yellow'
         else:
-            color = 'red'
+            color = 'green'
         return termcolor.colored("{0:0.4f}s".format(time_taken), color)
 
     def _format_report(self, test, time_taken):
@@ -142,21 +145,19 @@ class TimerPlugin(Plugin):
         _time_units_help = ("Default time unit is a second, but you can set "
                             "it explicitly (e.g. 1s, 500ms).")
 
-        _ok_help = ("Normal execution time. Such tests will be highlighted in "
-                    "green. {units_help}".format(units_help=_time_units_help))
+        _error_help = ("Error execution time. Such tests will be highlighted "
+                       "in red. {units_help}".format(
+                           units_help=_time_units_help))
 
-        parser.add_option("--timer-ok", action="store", default=1,
-                          dest="timer_ok",
-                          help=_ok_help)
+        parser.add_option("--timer-error", action="store", default=None,
+                          dest="timer_error", help=_error_help)
 
-        _warning_help = ("Warning about execution time to highlight slow "
-                         "tests in yellow. Tests which take more time will "
-                         "be highlighted in red. {units_help}".format(
+        _warning_help = ("Warning execution time. Such tests will be "
+                         "highlighted in yellow. {units_help}".format(
                              units_help=_time_units_help))
 
-        parser.add_option("--timer-warning", action="store", default=3,
-                          dest="timer_warning",
-                          help=_warning_help)
+        parser.add_option("--timer-warning", action="store", default=None,
+                          dest="timer_warning", help=_warning_help)
 
         _no_color_help = "Don't colorize output (useful for non-tty output)."
 

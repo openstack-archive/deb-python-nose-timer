@@ -55,12 +55,12 @@ For example, to show only the **10** slowest tests, run nosetests with the
 How do I color the output and have pretty colors?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can highlight slower tests using ``--timer-ok`` and ``--timer-warning`` flags.
+You can highlight slower tests using ``--timer-error`` and ``--timer-warning`` flags.
 Default time unit is the second, but you can specify it explicitly, e.g. 1s, 100ms.
 
-- Tests which take less time than ``--timer-ok`` will be highlighted in green.
-- Tests which take less time than ``--timer-warning`` will be highlighted in yellow.
-- All other tests will be highlighted in red.
+- Tests which take more time than ``--timer-error`` will be highlighted in red.
+- Tests which take more time than ``--timer-warning`` will be highlighted in yellow.
+- All other tests will be highlighted in green.
 
 
 How do I turn off pretty colors?
