@@ -1,3 +1,10 @@
+python-nose-timer (0.3.0-2) experimental; urgency=medium
+
+  * Remove Pre-Depends field from debian/control .
+  * Add python-nose and python3-nose as a dependency.
+
+ -- Ivan Udovichenko <iudovichenko@mirantis.com>  Thu, 17 Sep 2015 17:44:59 +0300
+
 python-nose-timer (0.3.0-1) unstable; urgency=medium
 
   * Initial release. (Closes: #767513)

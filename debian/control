@@ -21,8 +21,7 @@ Homepage: https://github.com/mahmoudimus/nose-timer
 
 Package: python-nose-timer
 Architecture: all
-Pre-Depends: dpkg (>= 1.15.6~)
-Depends: ${misc:Depends}, ${python:Depends}
+Depends: python-nose, ${misc:Depends}, ${python:Depends}
 Suggests: python-nose-timer-doc
 Description: timer plugin for nosetests - Python 2.x
  A timer plugin for nosetests that answers the question: how much time does
@@ -40,8 +39,7 @@ Description: timer plugin for nosetests - Python 2.x
 
 Package: python3-nose-timer
 Architecture: all
-Pre-Depends: dpkg (>= 1.15.6~)
-Depends: ${misc:Depends}, ${python3:Depends}
+Depends: python3-nose, ${misc:Depends}, ${python3:Depends}
 Suggests: python-nose-timer-doc
 Description: timer plugin for nosetests - Python 3.x
  A timer plugin for nosetests that answers the question: how much time does
