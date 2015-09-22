@@ -1,3 +1,2 @@
 version=3
-http://pypi.python.org/packages/source/n/nose-timer nose-timer-(.*).tar.gz
-
+http://pypi.debian.net/nose-timer/nose-timer-(.*).tar.gz

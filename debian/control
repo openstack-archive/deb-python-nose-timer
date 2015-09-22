@@ -2,18 +2,19 @@ Source: python-nose-timer
 Section: python
 Priority: optional
 Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
-Uploaders: Thomas Goirand <zigo@debian.org>
+Uploaders: Thomas Goirand <zigo@debian.org>,
 Build-Depends: debhelper (>= 9),
-               python-all (>= 2.6.6-3~),
+               dh-python,
+               python-all,
                python-setuptools,
                python3-all,
-               python3-setuptools
+               python3-setuptools,
 Build-Depends-Indep: python-mock,
                      python-nose,
                      python-nose-parameterized,
                      python3-mock,
                      python3-nose,
-                     python3-nose-parameterized
+                     python3-nose-parameterized,
 Standards-Version: 3.9.6
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/python-nose-timer.git
 Vcs-Git: git://anonscm.debian.org/openstack/python-nose-timer.git
@@ -21,8 +22,10 @@ Homepage: https://github.com/mahmoudimus/nose-timer
 
 Package: python-nose-timer
 Architecture: all
-Depends: python-nose, ${misc:Depends}, ${python:Depends}
-Suggests: python-nose-timer-doc
+Depends: python-nose,
+         ${misc:Depends},
+         ${python:Depends},
+Suggests: python-nose-timer-doc,
 Description: timer plugin for nosetests - Python 2.x
  A timer plugin for nosetests that answers the question: how much time does
  every test take? Run nosetests with the --with-timer flag, and you will see
@@ -39,8 +42,10 @@ Description: timer plugin for nosetests - Python 2.x
 
 Package: python3-nose-timer
 Architecture: all
-Depends: python3-nose, ${misc:Depends}, ${python3:Depends}
-Suggests: python-nose-timer-doc
+Depends: python3-nose,
+         ${misc:Depends},
+         ${python3:Depends},
+Suggests: python-nose-timer-doc,
 Description: timer plugin for nosetests - Python 3.x
  A timer plugin for nosetests that answers the question: how much time does
  every test take? Run nosetests with the --with-timer flag, and you will see

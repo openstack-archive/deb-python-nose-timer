@@ -1,9 +1,17 @@
-python-nose-timer (0.3.0-2) experimental; urgency=medium
+python-nose-timer (0.3.0-2) unstable; urgency=medium
 
+  [ Ivan Udovichenko ]
   * Remove Pre-Depends field from debian/control .
   * Add python-nose and python3-nose as a dependency.
 
- -- Ivan Udovichenko <iudovichenko@mirantis.com>  Thu, 17 Sep 2015 17:44:59 +0300
+  [ Thomas Goirand ]
+  * Added missing dh-python build-depends.
+  * Removed version for python-all build-depends.
+  * Fixed gbp.conf.
+  * Ran wrap-and-sort -t -a.
+  * Watch file now using the PyPi redirector instead of PyPi broken dir.
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 22 Sep 2015 07:59:11 +0000
 
 python-nose-timer (0.3.0-1) unstable; urgency=medium
 
